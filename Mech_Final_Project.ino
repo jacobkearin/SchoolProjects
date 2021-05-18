@@ -2,8 +2,6 @@
 // the power supply is managed by an arduino to control switching of voltages and display load currents and voltages
 // the power supply arduino communicates with the main control system via wireless module to determine which voltages are needed
 
-#include <RadioHead.h>
-#include <Radiohead.h> 
 #include <Adafruit_INA219.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>

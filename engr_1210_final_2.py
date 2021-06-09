@@ -1,8 +1,8 @@
-# This program processes user voting data for a farming survey
+# This program processes user input data for a farming survey and outputs as a new .xlsx file
 # data is in project_data_2.xlsx file
 
 # plotting for section a is commented out. uncomment for plots. 
-# all print functions are commented. uncomment for debugging
+# all print functions are commented.
 
 import pandas as pd
 import xlsxwriter as xw

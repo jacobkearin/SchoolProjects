@@ -1,8 +1,8 @@
-# This program processes order data for a farming supply/logistics system
-# data is in project_data_1.xlsx file
+# This program processes order data for a farming supply/logistics system and outputs as a new .xlsx file
+# raw data is in project_data_1.xlsx file
 
 # plotting for section e. and f. are commented out. uncomment for plots. 
-# all print functions are commented. uncomment for debugging
+# all print functions are commented.
 
 import pandas as pd
 import xlsxwriter as xw

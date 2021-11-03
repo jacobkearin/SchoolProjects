@@ -50,7 +50,7 @@ void L3low(){
 void setup() {
 
   Serial.begin(9600);
-//  while (!Serial);
+//  while (!Serial);      //wireless communication module never implemented into project
 //  // wait for serial port to connect. Needed for Leonardo only
 //  if (!nrf24.init())
 //    Serial.println("init failed");
@@ -79,7 +79,7 @@ void setup() {
 
 void loop() {
 
-//  Serial.println("Sending to nrf24_server");
+//  Serial.println("Sending to nrf24_server");    //wireless communication module never implemented into project
 //  // Send a message to nrf24_server
 //  uint8_t data[] = "Hello World!";
 //  nrf24.send(data, sizeof(data));

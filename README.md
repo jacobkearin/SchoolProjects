@@ -1,3 +1,3 @@
 # SchoolProjects
 
-This is just a dump of old school projects.
+This is just a dump of school projects.

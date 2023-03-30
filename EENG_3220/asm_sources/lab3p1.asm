@@ -1,0 +1,190 @@
+; part 1 solution
+;
+; Lab3.asm
+;
+; Created: 2/8/2023 12:05:39 PM
+; Author : keajacm
+;	Target: ATmega328P
+;
+;	Description: BCD to Seven Segment Display Decoder
+; 	
+;	Use the ATmega328P Xplained Mini to build a BCD to Seven Segment Display decoder.
+;	Connect SPDT switches to act as binary inputs.
+;	Connect a 7-segment display.
+;	Write code in assembly language to decode the four-bit BCD input and correctly drive the 7-
+;		segment display.
+
+
+start:
+	LDI R20, 0xFF
+	OUT DDRD, R20	;PORTD set to output
+	LDI R20, 0B11110000
+	OUT PORTC, R20
+
+READING:
+	IN R20, PINC	;load input to R20
+	ANDI R20, 0x0F
+IF0:
+	LDI R21, 0x00
+	CPSE R20, R21
+	RJMP IF1
+	JMP SEG0
+IF1:
+	LDI R21, 0x01
+	CPSE R20, R21
+	RJMP IF2
+	JMP SEG1
+IF2:
+	LDI R21, 0x02
+	CPSE R20, R21
+	RJMP IF3
+	JMP SEG2
+IF3:
+	LDI R21, 0x03
+	CPSE R20, R21
+	RJMP IF4
+	JMP SEG3
+IF4:
+	LDI R21, 0x04
+	CPSE R20, R21
+	RJMP IF5
+	JMP SEG4
+IF5:
+	LDI R21, 0x05
+	CPSE R20, R21
+	RJMP IF6
+	JMP SEG5
+IF6:
+	LDI R21, 0x06
+	CPSE R20, R21
+	RJMP IF7
+	JMP SEG6
+IF7:
+	LDI R21, 0x07
+	CPSE R20, R21
+	RJMP IF8
+	JMP SEG7
+IF8:
+	LDI R21, 0x08
+	CPSE R20, R21
+	RJMP IF9
+	JMP SEG8
+IF9:
+	LDI R21, 0x09
+	CPSE R20, R21
+	RJMP IFA
+	JMP SEG9
+IFA:
+	LDI R21, 0x0A
+	CPSE R20, R21
+	RJMP IFB
+	JMP SEGA
+IFB:
+	LDI R21, 0x0B
+	CPSE R20, R21
+	RJMP IFC
+	JMP SEGB
+IFC:
+	LDI R21, 0x0C
+	CPSE R20, R21
+	RJMP IFD
+	JMP SEGC
+IFD:
+	LDI R21, 0x0D
+	CPSE R20, R21
+	RJMP IFE
+	JMP SEGD
+IFE:
+	LDI R21, 0x0E
+	CPSE R20, R21
+	RJMP IFF
+	JMP SEGE
+IFF:
+	LDI R21, 0x0F
+	CPSE R20, R21
+	JMP READING
+	JMP SEGF
+
+	; -----------------------------------------
+
+SEG0:
+	LDI R16, 0b00111111	;load 0
+	OUT PORTD, R16
+	JMP READING
+
+SEG1:
+	LDI R16, 0b00000110	;load 1
+	OUT PORTD, R16
+	JMP READING
+
+SEG2:
+	LDI R16, 0b01011011	;load 2
+	OUT PORTD, R16
+	JMP READING
+
+SEG3:
+	LDI R16, 0b01001111	;load 3
+	OUT PORTD, R16
+	JMP READING
+
+SEG4:
+	LDI R16, 0b01100110	;load 4
+	OUT PORTD, R16
+	JMP READING
+
+SEG5:
+	LDI R16, 0b01101101	;load 5
+	OUT PORTD, R16
+	JMP READING
+
+SEG6:
+	LDI R16, 0b01111101	;load 6
+	OUT PORTD, R16
+	JMP READING
+
+SEG7:
+	LDI R16, 0b00000111	;load 7
+	OUT PORTD, R16
+	JMP READING
+
+SEG8:
+	LDI R16, 0b01111111	;load 8
+	OUT PORTD, R16
+	JMP READING
+
+SEG9:
+	LDI R16, 0b01101111	;load 9
+	OUT PORTD, R16
+	JMP READING
+
+SEGA:
+	LDI R16, 0b01110111	;load A
+	OUT PORTD, R16
+	JMP READING
+
+SEGB:
+	LDI R16, 0b01111100	;load B
+	OUT PORTD, R16
+	JMP READING
+
+SEGC:
+	LDI R16, 0b00111001	;load C
+	OUT PORTD, R16
+	JMP READING
+
+SEGD:
+	LDI R16, 0b01011110	;load D
+	OUT PORTD, R16
+	JMP READING
+
+SEGE:
+	LDI R16, 0b01111001	;load E
+	OUT PORTD, R16
+	JMP READING
+
+SEGF:
+	LDI R16, 0b01110001	;load F
+	OUT PORTD, R16
+	JMP READING
+	
+	

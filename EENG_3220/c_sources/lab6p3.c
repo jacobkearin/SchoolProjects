@@ -87,7 +87,7 @@ int main(void) {
 	prog_init();
 	
 	unsigned char Op;	//command input variable
-	unsigned char ch;	//data variable
+	unsigned char ch;	//data character
 	int temp = 1;
 	
 	while (1) {
